@@ -1,0 +1,18 @@
+
+corpus_location:
+    - /Volumes/langdoc/langs/kpv
+
+session_name_prefixes:
+    - kpv_csys
+    - kpv_izva
+    - kpv_let
+    - kpv_lit
+    - kpv_luz
+    - kpv_skar
+    - kpv_udo
+    - kpv_usys
+    - kpv_uvyc
+    - kpv_vym
+
+session_name_middle:
+    - \d{8}
