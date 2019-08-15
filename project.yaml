@@ -1,6 +1,6 @@
 
 corpus_location:
-    - /Volumes/langdoc/langs/kpv
+    - /Users/niko/langdoc/kpv
 
 session_name_prefixes:
     - kpv_csys
@@ -16,3 +16,12 @@ session_name_prefixes:
 
 session_name_middle:
     - \d{8}
+
+parent_child_patterns:
+    - ref, orth
+    - ref, ft-eng
+    - ref, ft-rus
+    - orth, word
+    - word, lemma
+    - lemma, pos
+    - pos, morph
