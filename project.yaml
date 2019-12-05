@@ -32,3 +32,5 @@ parent_child_patterns:
     - lemma, pos
     - pos, morph
   
+manually_verified_files:	
+    - kpv_izva20191205-example
