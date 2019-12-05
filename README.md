@@ -1,6 +1,6 @@
 ## Language documentation corpus validation scripts
 
-This repository contains a series of scripts that can be used to validate and investigate the structural coherence of a language documentation corpus that has been stored as ELAN files. This is work in progress.
+This repository contains a series of scripts that can be used to validate and investigate the structural coherence of a language documentation corpus that has been stored as ELAN files. This is work in progress, so there is the possibility that something doesn't work at all as intended.
 
 The scripts have been built to work with the structure of ELAN tier template used in several research projects, including [IKDP](https://langdoc.github.io/IKDP/), in the continuation project of which, [IKDP-2](https://langdoc.github.io/IKDP-2/) this work has been carried out. It is not clear if the tests in their current form are really useful for other projects, but in our project they have been practical in checking the errors in connection to archiving process.
 
