@@ -9,3 +9,7 @@ The scripts have been built to work with the structure of ELAN tier template use
 To our knowledge some other projects have also developed similar tools, and archives also have their own validation methods. Some similar resources are also in GitHub, i.e. [MattBrownUCL/test-eafs](https://github.com/MattBrownUCL/test-eafs). What possibly makes our approach to stand out is the attempt to connect in validation ELAN files and metadata content.
 
 We are happy to receive feedback about these tests, and also encourage other projects to extend from our work.
+
+In case you find the work useful or reuse it, it can be cited as:
+
+> Niko Partanen. (2019, December 5). langdoc/elan-tests: Language documentation corpus validation scripts (Version v0.1). Zenodo. http://doi.org/10.5281/zenodo.3564012
