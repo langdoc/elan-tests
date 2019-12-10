@@ -13,3 +13,7 @@ We are happy to receive feedback about these tests, and also encourage other pro
 In case you find the work useful or reuse it, it can be cited as:
 
 > Niko Partanen. (2019, December 5). langdoc/elan-tests: Language documentation corpus validation scripts (Version v0.1). Zenodo. http://doi.org/10.5281/zenodo.3564012
+
+### To-do
+
+- Dummy example corpus that contains individual mistakes and can be shared in its entirety, doesn't even need to be real corpus data
