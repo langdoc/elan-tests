@@ -40,7 +40,7 @@ def test_tier_types(session_file, types):
         if not root.findall("LINGUISTIC_TYPE[@LINGUISTIC_TYPE_ID='" + type + "']"):           
             print("Session " + session_basename + " is missing tier type " + type + ".")
 
-def test_tier_existenfce(elan_file_path, tier_prefixes):
+def test_tier_existence(elan_file_path, tier_prefixes):
     
     session_basename = os.path.basename(elan_file_path)
     
@@ -178,7 +178,31 @@ def print_unknown_words(elan_file_path, transcription_tier = "orthT", language =
 
     for count, elem in sorted(((missed_annotations.count(e), e) for e in set(missed_annotations)), reverse=True):
         print('%s (%d)' % (elem, count))
-                    
+
+def create_eaf(session_directory = 'test', session_name = 'test', speakers = ['S1', 'S2'], author = 'IKDP'):
+
+    filename = f'{session_name}.eaf'
+    
+    elan_file = pympi.Elan.Eaf(file_path = None, author = author)
+
+    elan_file.add_linguistic_type(lingtype='refT', timealignable=True, graphicreferences=False)
+    elan_file.add_linguistic_type(lingtype='orthT', timealignable=False, graphicreferences=False, constraints='Symbolic_Association')
+    elan_file.add_linguistic_type(lingtype='ft-rusT', timealignable=False, graphicreferences=False, constraints='Symbolic_Association')
+    elan_file.add_linguistic_type(lingtype='ft-engT', timealignable=False, graphicreferences=False, constraints='Symbolic_Association')
+    
+    elan_file.add_linked_file(file_path = f'{session_name}.wav', mimetype = 'audio/x-wav')
+
+    for speaker in speakers:
+        elan_file.add_tier(tier_id=f'ref@{speaker}', ling='refT')
+        elan_file.add_tier(tier_id=f'orth@{speaker}', ling='orthT', parent= f'ref@{speaker}')
+        elan_file.add_language(lang_def = 'http://cdb.iso.org/lg/CDB-00131321-001', lang_id = 'kpv', lang_label = 'Komi-Zyrian (kpv)')
+        elan_file.add_tier(tier_id=f'word@{speaker}', ling='wordT', parent= f'orth@{speaker}', language='kpv')
+
+    # This tier is created automatically
+    elan_file.remove_tier(id_tier='default')
+
+    elan_file.to_file(file_path = f'{session_directory}/{filename}')        
+
 # MESSY OLD PARTS, NOT CURRENTLY USED
 
 def get_elan_participants(elan_file):
