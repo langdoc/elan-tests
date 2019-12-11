@@ -113,7 +113,9 @@ def check_illegal_characters(elan_file_path, verification_list, tier_type = "ort
                         print("In " + session_name + " suspicious character in: " + word)
 
 
-def test_session_name_meta(session_name, meta_json):
+def test_session_name_meta(elan_file, meta_json):
+    
+    session_name = Path(elan_file).stem
     
     session_names = set()
     
@@ -121,9 +123,9 @@ def test_session_name_meta(session_name, meta_json):
         
         session_names.add(session['session_name'])
         
-    if session_name not in session_names:
-        
-        print(f'Session {session_name} not found from metadata!')
+    if str(session_name) not in session_names:
+                          
+        print(f'Session {str(session_name)} not found from metadata!')
 
 def test_participant_meta(elan_file_path, meta_json, tier_type):
     
