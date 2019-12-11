@@ -48,14 +48,20 @@ def test_tier_existence(elan_file_path, tier_prefixes):
     root = tree.getroot()
     tiers = root.findall("TIER")
     
+    tier_prefix_list = []
+    
     for tier in tiers:
         
         tier_name = tier.get("TIER_ID")
         tier_name_base = tier_name.rsplit('@', 1)[0]
         
-        if tier_name_base not in tier_prefixes:
+        tier_prefix_list.append(tier_name_base)
+        
+    for tier_prefix in tier_prefixes:
+        
+        if tier_prefix not in tier_prefix_list:
             
-            print(f"Session {session_basename} is missing tier {tier_name_base}." )
+            print(f"Session {session_basename} is missing tier {tier_prefix}." )
 
 def test_tier_type_consistency(session_file):
     
